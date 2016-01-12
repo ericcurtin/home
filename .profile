@@ -31,6 +31,7 @@ export CCACHE_NOCOMPRESS=1
 export CXX='ccache g++'
 export CC='ccache gcc'
 export SVN_EDITOR=vi
+export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu' -c 'nnoremap i <nop>' -"
 
 PATH=/sbin:~/scripts:$PATH
 

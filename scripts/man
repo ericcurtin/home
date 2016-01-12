@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# Eric Curtin - man viewer
-
-/usr/bin/man $* | vi -
-
