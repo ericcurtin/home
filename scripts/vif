@@ -1,0 +1,11 @@
+#!/bin/sh
+
+RESULT=$(find . -type f -name $1)
+RESULTNUM=$(printf "$RESULT\n" | wc -l)
+if [ $RESULTNUM -eq 1 ]
+then
+    vi $RESULT   
+else
+    printf "$RESULT\n$RESULTNUM files found.\n"
+fi
+

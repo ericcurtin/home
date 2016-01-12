@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Eric Curtin - script for performing updates
+
+set -e
+
+sudo yum -y update
+cd /home/curtine/git/git
+git pull
+make -j5
+cd /home/curtine/git/ccache
+git pull
+make -j5
+

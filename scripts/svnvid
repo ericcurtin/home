@@ -1,0 +1,4 @@
+#!/bin/sh
+
+svn di --diff-cmd=$HOME/scripts/diffwrap $@
+

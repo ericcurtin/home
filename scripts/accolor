@@ -1,0 +1,24 @@
+#!/usr/bin/perl -w
+# Colorize the output from our acbuild script (or other acutoconf/libtool/gcc outputs).
+# Looks best on light colored backgrounds.
+# Use like this:
+#   ./acbuild.sh -prc 2>&1 | ./accolor
+# Remember the stderr redirect, because compiler errors go there, not stdout.
+
+use Term::ANSIColor;
+my $reset = color('reset');
+my $error = color('red');
+my $warn  = color('yellow');
+
+print $reset;
+
+while (<>) {
+    s/  (error: \s .+? ) $           /$error$1$reset/x;
+    s/  (warn(ing)? : \s .+? ) $     /$warn$1$reset/x;
+    s/^ (not \s ok \s .+? ) $        /$error$1$reset/x;
+    s/^ ( \#\sFailed\stest\s .+? ) $ /$warn$1$reset/x;
+    s/^ ( \#\s+Got:\s .+? ) $        /$warn$1$reset/x;
+    s/^ ( \#\s+Expected:\s .+? ) $   /$warn$1$reset/x;
+    print;
+}
+

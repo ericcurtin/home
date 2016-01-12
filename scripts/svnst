@@ -1,0 +1,4 @@
+#!/bin/sh
+
+svn st | awk '{printf $2"\n"}'
+

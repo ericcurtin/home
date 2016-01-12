@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for ((i=$1; i<=$2; i++))
+    do
+    echo "trying port $i"
+    if [[ "$(netstat -an|grep :$i)" == *LISTEN* ]]
+    then
+        echo "port $i blocked :("
+    fi
+done
+
