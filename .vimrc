@@ -8,4 +8,3 @@ imap <2-LeftMouse> <c-o>*
 
 "close all open vim
 map <F4> :qa<CR>
-imap <F4> :qa<CR>
